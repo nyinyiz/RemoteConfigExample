@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>text_str</key>
+        <value>Welcome to the app OK lrr</value>
+    </entry>
+    <entry>
+        <key>text_size</key>
+        <value>14</value>
+    </entry>
+    <entry>
+        <key>text_color</key>
+        <value>#FF0000</value>
+    </entry>
+    <entry>
+        <key>background_color</key>
+        <value>#ffffff</value>
+    </entry>
+    <entry>
+        <key>input_field_max_count</key>
+        <value>2</value>
+    </entry>
+    <entry>
+        <key>background_image</key>
+        <value>https://i.ytimg.com/vi/YizPeVoFDCs/hqdefault.jpg</value>
+    </entry>
+</defaultsMap>
