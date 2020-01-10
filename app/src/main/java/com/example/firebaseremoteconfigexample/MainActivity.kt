@@ -1,22 +1,14 @@
 package com.example.firebaseremoteconfigexample
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color.parseColor
 import android.os.Bundle
+import android.text.InputFilter
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import coil.api.load
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import android.graphics.Color.parseColor
-import android.net.Uri
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.Toast
-import android.text.InputFilter
-import android.graphics.BitmapFactory
-import android.graphics.Bitmap
-import coil.api.load
-import java.io.BufferedInputStream
-import java.io.IOException
-import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Fetch singleton FirebaseRemoteConfig object
-        var firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        var firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
 
         /*firebaseRemoteConfig.setConfigSettings(
             FirebaseRemoteConfigSettings.Builder()
@@ -36,11 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         firebaseRemoteConfig.setConfigSettingsAsync(
             FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(3600L)
-                .build())
+                .build()
+        )
 
         firebaseRemoteConfig.setDefaults(R.xml.default_map)
-
-        Log.d("THIS IS TEXt","THIS IS : ${firebaseRemoteConfig.getString("text_str")}")
 
         text.setTextColor(parseColor(firebaseRemoteConfig.getString("text_color")))
         text.textSize = firebaseRemoteConfig.getValue("text_size").asDouble().toFloat()
