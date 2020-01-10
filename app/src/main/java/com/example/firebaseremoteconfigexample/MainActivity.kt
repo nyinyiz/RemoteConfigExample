@@ -28,11 +28,15 @@ class MainActivity : AppCompatActivity() {
         // Fetch singleton FirebaseRemoteConfig object
         var firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
-        firebaseRemoteConfig.setConfigSettings(
+        /*firebaseRemoteConfig.setConfigSettings(
             FirebaseRemoteConfigSettings.Builder()
                 .setDeveloperModeEnabled(true)
                 .build()
-        )
+        )*/
+
+        firebaseRemoteConfig.setConfigSettingsAsync(
+            FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(3600L)
+                .build())
 
         firebaseRemoteConfig.setDefaults(R.xml.default_map)
 
@@ -55,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             firebaseRemoteConfig.fetch(0).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this@MainActivity, "Activated", Toast.LENGTH_SHORT).show()
-                    firebaseRemoteConfig.activateFetched()
+                    firebaseRemoteConfig.activate()
 
                 } else {
                     Toast.makeText(this@MainActivity, "Not Activated", Toast.LENGTH_SHORT).show()
